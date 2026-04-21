@@ -11,34 +11,42 @@ export default function Portfolio() {
   ];
 
   return (
-    <section id="work" className="py-20 px-6 bg-gray-50 text-center">
-      <div className="max-w-6xl mx-auto">
+    <section id="work" className="py-16 sm:py-20 px-4 sm:px-6 bg-gray-50">
+      <div className="max-w-6xl mx-auto text-center">
 
-        <h2 className="text-3xl font-bold mb-10">Our Work</h2>
+        {/* Title */}
+        <h2 className="text-2xl sm:text-3xl font-bold mb-10">
+          Our Work
+        </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
           {projects.map((p, i) => (
             <div
               key={i}
-              className="bg-white rounded-xl shadow hover:shadow-lg hover:scale-105 transition overflow-hidden"
+              className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl hover:scale-[1.03] transition duration-300"
             >
-              <Image
-                src={p.img}
-                alt={p.name}
-                width={400}
-                height={250}
-                className="w-full h-48 object-cover"
-              />
+              {/* Image */}
+              <div className="relative w-full h-52 sm:h-56 md:h-60">
+                <Image
+                  src={p.img}
+                  alt={p.name}
+                  fill
+                  className="object-cover"
+                />
+              </div>
 
+              {/* Content */}
               <div className="p-4">
-                <h3 className="font-semibold">{p.name}</h3>
+                <h3 className="text-sm sm:text-base font-semibold">
+                  {p.name}
+                </h3>
               </div>
             </div>
           ))}
 
         </div>
-
       </div>
     </section>
   );
